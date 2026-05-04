@@ -42,7 +42,7 @@ Loading data...
 Successfully loaded 249,455 molecules
 
 Starting parallel run (24 cores)...
-Parallel run concluded in 4.4 seconds
+Parallel run concluded in 5.2 seconds
 
 Starting sequential run (1 core)...
 Sequential run concluded in 39.4 seconds
@@ -52,6 +52,6 @@ Sequential run concluded in 39.4 seconds
 
 ## Analysis
 
-The parallelized run achieved an ~8x speedup (39.4s vs 4.4s) over the sequential baseline.
+The parallelized run achieved an ~8x speedup (39.4s vs 5.2s) over the sequential baseline.
 
 While executed on 24 cores, the scaling does not reach a perfect 24x linear speedup. This is expected behavior for local Python multiprocessing, as the Inter-Process Communication (IPC) overhead, specifically the serialization (pickling) of the string data from the main process to the worker nodes and the deserialization of the resulting floats, creates a secondary bottleneck.
