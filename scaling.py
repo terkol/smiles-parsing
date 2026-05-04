@@ -70,5 +70,5 @@ if __name__ == "__main__":
     # Bar chart
     plt.bar(['Sequential time',f'Parallel time ({n_cores} cores)'],[sequential_time,parallel_time],width=0.8)
     plt.ylabel('Execution time (s)')
-    plt.title(f'Effect of parallellization in processing {len(smiles_list)}\n SMILES strings into their corresponding molar masses')
+    plt.title(f'Effect of parallelization in processing {len(smiles_list)}\n SMILES strings into molar masses')
     plt.show()
