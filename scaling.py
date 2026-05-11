@@ -33,7 +33,7 @@ def process_smiles(smiles_string: str):
         if mol is not None:
             return Descriptors.MolWt(mol)
         return None
-    except: 
+    except Exception: 
         return None
 
 if __name__ == "__main__":
