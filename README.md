@@ -1,9 +1,10 @@
 # High-Throughput SMILES Parsing: Multiprocessing PoC
 
-This repository demonstrates the application of Python's `multiprocessing` architecture to accelerate a heavily CPU-bound cheminformatics workflow.
+An application of Python's `multiprocessing` architecture to accelerate a simple, but heavily CPU-bound cheminformatics workflow.
 
 ## The Main Bottleneck
-Parsing text-based SMILES data into mathematical graph representations using RDKit (`Chem.MolFromSmiles`) is computationally expensive. 
+
+Parsing SMILES data into mathematical graph representations using RDKit (`Chem.MolFromSmiles`) is computationally expensive. 
 
 This script isolates the RDKit processing logic and distributes it across a local CPU worker pool to benchmark the effect of parallelization against a sequential baseline.
 
@@ -54,4 +55,4 @@ Sequential run concluded in 39.4 seconds
 
 The parallelized run achieved an ~8x speedup (39.4s vs 5.2s) over the sequential baseline.
 
-While executed on 24 cores, the scaling does not reach a perfect 24x linear speedup. This is expected behavior for local Python multiprocessing, as the Inter-Process Communication (IPC) overhead, specifically the serialization (pickling) of the string data from the main process to the worker nodes and the deserialization of the resulting floats, creates a secondary bottleneck.
+While executed on 24 cores, the scaling does not reach the perfect 24x linear speedup. Though, this is expected for local Python multiprocessing, as the Inter-Process Communication (IPC) overhead, especially the pickling of the strings from the main process to the worker nodes and the deserialization of the resulting floats, creates a second bottleneck.
